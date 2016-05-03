@@ -1,0 +1,13 @@
+<div>
+  <div>
+    <input class="button" type="file" id="file">
+  </div>
+  <div>
+    <button class="button" ng-click="sendFile()">Send</button>
+    <a class="button" id="download"></a>
+    <button class="button closedownload" ng-click="close()"><i class="fa fa-times"></i></button>
+  </div>
+  <div class="progressBox">
+    <progress id="sendProgress" max="0" value="0"></progress>
+  </div>
+</div>

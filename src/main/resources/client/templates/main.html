@@ -1,0 +1,101 @@
+<nav ng-show="signinFlag">
+  <div class="menu">
+    <div class="columns">
+      <button class="back-button" ng-click="back()" title="Exit"><i class="fa fa-times-circle enable"></i></button>
+    </div>
+    <div class="columns" ng-if="!isAdvisor">
+      <button class="call-button" ng-click="makeCall()" title="Make Call"><i class="fa fa-phone fa-fw enable"></i></button>
+    </div>
+    <div class="columns" ng-if="isAdvisor">
+      <button class="join-button" ng-click="showCalls()" title="Join Call"><i class="fa fa-group fa-fw enable"></i><span class="alert badge waitingCaller">?</span></button>
+    </div>
+    <div class="columns">
+      <button class="leave-button" ng-click="leaveCall()" title="Leave Call" ng-disabled="true"><i class="fa fa-sign-out fa-fw enable"></i></button>
+    </div>
+    <div class="columns hide">
+      <button class="chat-button" ng-click="triggerChatBox()" title="Chat"><i class="fa fa-weixin fa-fw enable"></i></button>
+    </div>
+    <div class="columns hide">
+      <button class="file-button" ng-click="triggerFileBox()" title="Share File"><i class="fa fa-upload fa-fw enable"></i></button>
+    </div>
+    <div class="columns hide show-for-large" ng-hide="isAdvisor">
+      <button class="screen-button" ng-click="triggerScreenBox()" title="Share Screen"><i class="fa fa-slideshare fa-fw enable"></i></button>
+    </div>
+    <div class="columns hide show-for-large" ng-show="isAdvisor">
+      <button class="sharescreen-button" ng-click="launchChromeApp()" title="Share Screen"><i class="fa fa-slideshare fa-fw enable"></i></button>
+    </div>
+    <div class="columns">
+      <button class="mic-button" ng-click="toggleAudio()" title="Mute"><i class="fa fa-microphone fa-fw enable"></i></button>
+    </div>
+    <div class="columns">
+      <button class="video-button" ng-click="toggleVideo()" title="Toggle Video"><i class="fa fa-video-camera fa-fw enable"></i></button>
+    </div>
+  </div>
+</nav>
+
+<div class="row align-center" ng-hide="signinFlag">
+  <div class="column small-12">&nbsp;</div>
+  <div class="column small-12 medium-8">
+    <form class="signinForm" novalidate>
+      <div class="input-group">
+        <input class="input-group-field" type="text" placeholder="Student" ng-model="username" required>
+        <a class="input-group-button button" ng-click="signin(username, false)">SignIn</a>
+      </div>
+    </form>
+  </div>
+  <div class="column small-12 medium-8">
+    <p class="text-center">or</p>
+  </div>
+  <div class="column small-12 medium-8">
+    <form class="signinForm">
+      <div class="input-group">
+        <input class="input-group-field" type="text" placeholder="Advisor" ng-model="advisor" required>
+        <a class="input-group-button button" ng-click="signin(advisor, true)">SignIn</a>
+      </div>
+    </form>
+  </div>
+</div>
+
+<section>
+
+  <div class="call-list" />
+
+  <div class="call-box hide">
+    <div class="callout primary clearfix">
+      <i class="fa fa-user"></i> <span></span>
+      <button type="button" class="button float-right"><i class="fa fa-phone fa-2x"></i></button>
+    </div>
+  </div>
+
+</section>
+
+<section>
+  <div id='localVideoBox' class="hide">
+    <video id='localVideo' autoPlay muted="muted" />
+  </div>
+
+  <div id='remoteVideoBox' class="hide">
+    <video id='remoteVideo' class='{{remoteVideoClass}}' autoPlay />
+  </div>
+
+  <div id='remoteScreenBox' ng-show="screenFlag">
+    <video id='remoteScreen' autoPlay />
+  </div>
+</section>
+
+
+<section>
+  <chat-box username="username" />
+</section>
+
+<section>
+  <file-box></file-box>
+</section>
+
+<section class="show-for-medium">
+  <filter-box></filter-box>
+</section>
+
+<message-box></message-box>
+
+<spinner id="spinner" class="hide"></spinner>

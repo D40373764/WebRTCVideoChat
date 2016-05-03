@@ -1,0 +1,7 @@
+{
+  "http.port": 8543,
+  "total.instances": 1,
+  "high.availability": false,
+  "keystore.path": "keystore.jks",
+  "keystore.pass": "password"
+}

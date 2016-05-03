@@ -1,0 +1,250 @@
+:focus {
+  outline: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  font-size: 2rem;
+  background-color: whitesmoke;
+}
+
+.no-margin {
+  margin: 0;
+}
+
+.container {
+  display: flex;
+}
+
+.signinForm input {
+  font-size: 2rem;
+  height: 50px;
+}
+
+nav {
+  margin-bottom: 0;
+  bottom: 0;
+  position: fixed;
+  width: 100vw;
+  background-color: rgba(30, 30, 30, 0.1);
+  z-index: 999;
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  background-color: rgba(65, 91, 162, 0.9);
+}
+
+.menu .columns {
+  padding: 0;
+}
+
+.menu button {
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.menu button:disabled {
+  background-color: #dddddd;
+}
+
+.menu div:hover {
+  background-color: #6f8cde;
+}
+
+.enable {
+  color: whitesmoke;
+}
+
+#localVideoBox {
+  display: block;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  border: 2px solid white;
+}
+
+#localVideoBox video {
+  display: block;
+  width: 10vw;
+}
+
+#remoteVideoBox {
+  /*
+  position: fixed;
+  width: 100%;
+  height: 100%;*/
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  z-index: -900;
+}
+
+.full-size {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-grow: 1;
+  flex-basis: 100%;
+}
+
+.small-size {
+  position: fixed;
+  bottom: 62px;
+  left: 12px;
+  width: 10vw;
+}
+
+#remoteVideoBox video {
+  z-index: -900;
+}
+
+#remoteScreenBox {
+  float: right;
+}
+
+#remoteScreenBox video {
+  position: relative;
+  max-height: 90vh;
+}
+
+.call-list {
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+}
+
+.down-up {
+  -webkit-animation: down-up 1s;
+}
+
+@-webkit-keyframes down-up {
+  0% {
+    opacity: 0;
+  }
+  11% {
+    top: 100%;
+  }
+  100% {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+.call-list .callout {
+  width: 100%;
+  margin: 0;
+  border-top: 0;
+  z-index: 1;
+  background-color: rgb(43, 166, 203);
+}
+
+chat-box {
+  position: absolute;
+  display: flex;
+  top: 0;
+  right: 0;
+  width: 0;
+  background-color: rgba(255, 255, 255, 0.9);
+  -webkit-transition: all 1s;
+}
+
+chat-box .input-group {
+  position: fixed;
+}
+
+chat-box label {
+  color: cornflowerblue;
+  font-family: Verdana, Geneva, sans-serif;
+}
+
+chat-box .receivedBox {
+  margin: 40px 20px 20px 20px;
+  width: 100%;
+}
+
+chat-box .receivedBox div {
+  display: inline-block;
+  padding: 0 10px;
+}
+
+.incomingmessage {
+  color: whitesmoke;
+  background-color: rgba(255, 68, 0, 0.5);
+  overflow: hidden;
+  word-wrap: break-word;
+  font-size: 1rem;
+}
+
+.outmessage {
+  color: coral;
+  background-color: rgba(255, 255, 255, 0.5);
+  overflow: hidden;
+  word-wrap: break-word;
+  font-size: 1rem;
+}
+
+file-box {
+  font-size: 1rem;
+  position: fixed;
+  right: -100%;
+  bottom: 52px;
+  width: 100%;
+  background: -webkit-linear-gradient(top, rgba(100, 157, 85, 0.7), whitesmoke);
+  -webkit-transition: all 1s;
+}
+
+file-box > div {
+  padding: 10px;
+}
+
+file-box #download,
+file-box .closedownload {
+  display: none;
+}
+
+#sendProgress {
+  width: 100%;
+  height: 20px;
+  visibility: hidden;
+}
+
+filter-box {
+  box-sizing: border-box;
+  font-size: 1rem;
+  position: fixed;
+  right: 0;
+  bottom: 100px;
+  width: 0;
+  /*  padding: 1% 1% 0 1%;
+  */
+  background-color: rgba(255, 255, 255, 0.6);
+  -webkit-transition: width 1s;
+}
+
+message-box {
+  color: white;
+  background-color: rgba(37, 128, 234, 0.76);
+  position: absolute;
+  height: 0;
+  bottom: 0px;
+  width: 100%;
+  text-align: center;
+  -webkit-transition: all 1s;
+}
+
+.volume {
+  width: 100%;
+  height: 20px;
+  background-color: whitesmoke;
+}
+
+filter-box gray {
+  background-color: #e5e5e5;
+}
